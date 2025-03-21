@@ -1,0 +1,154 @@
+/* 🔹 Reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el tamaño de los elementos no se vea afectado por el padding o borde */
+}
+
+/* 🔹 Body centrado */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    padding-top: 70px; /* Espacio para la barra de botones */
+}
+
+/* 🔹 Barra de navegación fija */
+.botones {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 60px;
+    background-color: #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000; /* Asegura que la barra esté encima de todo */
+    border-radius: 10px;
+}
+
+.botones a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem; /* Usamos rem para que el tamaño sea relativo */
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 5px;
+    text-align: center;
+    background-color: red;
+}
+
+.botones a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efecto de hover */
+}
+
+/* 🔹 Galería de imágenes */
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 80px;
+    width: 90%;
+}
+
+.imagen {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.imagen img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.imagen:hover img {
+    transform: scale(1.1); /* Agranda la imagen al hacer hover */
+}
+
+/* 🔹 Texto sobre la imagen */
+.atras {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro para el texto */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw; /* El tamaño de la fuente se ajusta al 5% del ancho de la ventana */
+    padding: 0 10px;
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.3s ease; /* Transición suave para el texto */
+    text-align: center; /* Centra el texto */
+    line-height: 1.2;
+    word-wrap: break-word; /* Asegura que las palabras largas no se salgan del contenedor */
+    white-space: normal; /* Permite que el texto se ajuste en varias líneas si es necesario */
+}
+
+.imagen:hover .atras {
+    opacity: 1; /* Muestra el texto cuando se pasa el mouse */
+}
+
+/* 🎨 Media Queries para adaptabilidad */
+@media (max-width: 768px) {
+    .botones a {
+        font-size: 1rem; /* Reduce el tamaño de los botones en pantallas pequeñas */
+    }
+
+    .contenido h1 {
+        font-size: 1.5rem; /* Reduce el tamaño del título */
+    }
+
+    .galeria {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .imagen {
+        width: 150px; /* Reduce el tamaño de las imágenes */
+    }
+
+    .atras {
+        font-size: 6vw; /* Aumenta el tamaño del texto sobre la imagen en pantallas más pequeñas */
+    }
+
+    .atras p {
+        font-size: 0.9em; /* Ajusta el tamaño del texto en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .botones a {
+        font-size: 0.9rem; /* Reduce aún más el tamaño de los botones */
+    }
+
+    .contenido h1 {
+        font-size: 1.2rem; /* Ajusta aún más el tamaño del título */
+    }
+
+    .imagen {
+        width: 120px; /* Imágenes más pequeñas en pantallas muy pequeñas */
+    }
+
+    .atras {
+        font-size: 8vw; /* Aumenta aún más el tamaño del texto sobre la imagen */
+    }
+
+    .atras p {
+        font-size: 1em; /* Ajusta el tamaño del texto sobre la imagen en pantallas muy pequeñas */
+    }
+}
